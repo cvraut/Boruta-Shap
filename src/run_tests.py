@@ -2,7 +2,7 @@ from BorutaShap import BorutaShap, load_data
 from xgboost import XGBClassifier,XGBRegressor
 from catboost import CatBoostClassifier,CatBoostRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, HistGradientBoostingRegressor ,HistGradientBoostingClassifier
 from lightgbm import LGBMClassifier, LGBMRegressor
 
 
@@ -34,12 +34,14 @@ if __name__ == "__main__":
     
     tree_classifiers = {'tree-classifier':DecisionTreeClassifier(), 'forest-classifier':RandomForestClassifier(),
                         'xgboost-classifier':XGBClassifier(),'lightgbm-classifier':LGBMClassifier(),
-                        'catboost-classifier':CatBoostClassifier()}
+                        'catboost-classifier':CatBoostClassifier(),
+                        'histgradientboosting-classifier':HistGradientBoostingClassifier()}
 
 
     tree_regressors = {'tree-regressor':DecisionTreeRegressor(), 'forest-regressor':RandomForestRegressor(),
                        'xgboost-regressor':XGBRegressor(),'lightgbm-regressor':LGBMRegressor(),
-                       'catboost-regressor':CatBoostRegressor()}
+                       'catboost-regressor':CatBoostRegressor(),
+                       'histgradientboosting-regressor':HistGradientBoostingRegressor()}
 
     
     Test_Models('regression', tree_regressors)
