@@ -2,6 +2,11 @@ from BorutaShap import BorutaShap, load_data
 from xgboost import XGBClassifier,XGBRegressor
 from catboost import CatBoostClassifier,CatBoostRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+# if sklearn.__version__ < 1.0 HistGradientBoostingClassifier is an experimental feature
+from sklearn import __version__ as sklearn_version
+from distutils.version import StrictVersion
+if StrictVersion(sklearn_version) < StrictVersion("1.0.0"):
+    from sklearn.experimental import enable_hist_gradient_boosting
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, HistGradientBoostingRegressor ,HistGradientBoostingClassifier
 from lightgbm import LGBMClassifier, LGBMRegressor
 
